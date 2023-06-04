@@ -5,7 +5,7 @@
   "types": "./index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "prettier --write src && eslint src --fix --max-warnings=0",
+    "lint": "prettier --write . && eslint . --fix --max-warnings=0",
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
