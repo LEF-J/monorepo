@@ -12,6 +12,7 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'turbo',
     'plugin:react/recommended',
     'plugin:typescript-sort-keys/recommended',
     'plugin:react/jsx-runtime',
