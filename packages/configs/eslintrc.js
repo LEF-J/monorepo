@@ -1,98 +1,70 @@
 module.exports = {
   env: {
-    browser: true,
-    es2021: true,
-    jest: true,
-    node: true,
+    browser : true,
+    es2021  : true,
+    jest    : true,
+    node    : true,
   },
   settings: {
     react: {
-      version: "detect",
+      version: 'detect',
     },
   },
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:typescript-sort-keys/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
   ],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  overrides: [
+    {
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
+      files         : ['**/*.{ts,tsx}'],
+      parserOptions : {
+        tsconfigRootDir : __dirname,
+        ecmaFeatures    : {
+          jsx: true,
+        },
+        ecmaVersion : 12,
+        sourceType  : 'module',
+
+        project: ['./tsconfig.json'],
+      },
+      rules: {
+        '@typescript-eslint/await-thenable'       : 'error',
+        '@typescript-eslint/no-floating-promises' : 'error',
+        '@typescript-eslint/no-misused-promises'  : 'error',
+      },
     },
-    ecmaVersion: 12,
-    sourceType: "module",
-  },
-  plugins: [
-    "react",
-    "@typescript-eslint",
-    "react-hooks",
-    "import-helpers",
-    "prettier",
+    {
+      files  : '*.json',
+      parser : 'jsonc-eslint-parser',
+      rules  : {
+        'jsonc/sort-keys': 'error',
+      },
+      extends: ['plugin:jsonc/recommended-with-json'],
+    },
+  ],
+  parser  : '@typescript-eslint/parser',
+  plugins : [
+    'react',
+    '@typescript-eslint',
+    'react-hooks',
+    'simple-import-sort',
+    'typescript-sort-keys',
   ],
   rules: {
-    indent: [
-      "error",
-      2,
-      {
-        VariableDeclarator: "first",
-        ObjectExpression: "first",
-        ArrayExpression: "first",
-        CallExpression: {
-          arguments: "first",
-        },
-        ImportDeclaration: "first",
-        offsetTernaryExpressions: true,
-      },
-    ],
-    "key-spacing": [
-      "error",
-      {
-        align: {
-          beforeColon: true,
-          afterColon: true,
-          on: "colon",
-        },
-      },
-    ],
-    semi: ["error", "always"],
-    quotes: [
-      "error",
-      "single",
-      {
-        avoidEscape: true,
-        allowTemplateLiterals: true,
-      },
-    ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off", // para trabalhar com NextJS apenas
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "import-helpers/order-imports": [
-      "warn",
-      {
-        newlinesBetween: "always", // Cria uma nova linha para separar as importacoes
-        groups: [
-          ["/^react/", "/^next/"],
-          "module",
-          "/^@shared/",
-          "absolute",
-          "/^components/",
-          "/^pages/",
-          "/utils/",
-          "/constants/",
-          "/^store/",
-          "/^styles/",
-          "/^templates/",
-          ["parent", "sibling", "index"],
-        ],
-        alphabetize: {
-          order: "asc",
-          ignoreCase: true,
-        },
-      },
-    ],
+    'simple-import-sort/exports'                        : 'error',
+    'simple-import-sort/imports'                        : 'error',
+    'react-hooks/rules-of-hooks'                        : 'error',
+    'react-hooks/exhaustive-deps'                       : 'warn',
+    'react/prop-types'                                  : 'off',
+    'react/react-in-jsx-scope'                          : 'off', // para trabalhar com NextJS apenas
+    '@typescript-eslint/explicit-module-boundary-types' : 'off',
+    '@typescript-eslint/no-non-null-assertion'          : 'off',
   },
 };
