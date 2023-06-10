@@ -17,7 +17,7 @@ function Footer() {
     ]
 
     return (
-        <footer className="bg-neutral-900 flex flex-col gap-10 p-6">
+        <footer className="bg-neutral-900 flex flex-col gap-10 p-6 lg:px-60">
             <div className="flex flex-col gap-2">
                 <h3 className="text-white text-2xl font-bold">Lorem ipsum dolor sit amet</h3>
                 <p className="text-white leading-5">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>

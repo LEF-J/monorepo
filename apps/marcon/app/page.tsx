@@ -14,12 +14,12 @@ export default function Home() {
       <Navbar/>
       <FirstPage/>
       <SecondPage/>
-      <hr/>  
+      <hr className="lg:mx-56"/>  
       <ThirdPage/>
       <FourthPage/>
-      <hr/>
+      <hr className="lg:ml-56"/>
       <FifthPage/>
-      <hr/>
+      <hr className="lg:mx-56"/>
       <SixthPage/>
       <Footer/>
     </main>

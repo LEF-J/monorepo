@@ -8,7 +8,7 @@ function SixthPage() {
     const [message, setMessage] = useState("");
 
     return (
-        <section id="sixth" className="flex flex-col gap-8 p-4 w-full lg:w-5/12 lg:m-auto">
+        <section id="sixth" className="flex flex-col gap-8 p-4 w-full lg:px-60">
             <div className="flex flex-col gap-1">
                 <h2 className="text-4xl font-bold">Ante metus dictum</h2>
                 <p className="">at tempor commodo.</p>

@@ -2,14 +2,14 @@ import React from "react";
 
 function ThirdPageCard({title, subtitle, image, isReverse}: {title: string, subtitle: string, image: string, isReverse: boolean}) {
     return (
-        <div className={`flex ${(isReverse ? "flex-row-reverse" : "flex-row")} p-4`}>
+        <div className={`flex ${(isReverse ? "flex-row-reverse" : "flex-row")} lg:flex-col lg:w-3/12 p-4`}>
             <img 
                 src={image}
-                className="rounded-full w-5/12 p-2 h-fit"
+                className="rounded-full w-5/12 p-2 h-fit lg:w-10/12 lg:mx-auto"
             />
-            <div className="w-7/12 p-2">
-                <h3 className={"text-2xl font-bold leading-tight text-primary mb-2" + (isReverse ? " text-right" : "text-left")}>{title}</h3>
-                <p className={(isReverse ? " text-right" : "text-left")}>{subtitle}</p>
+            <div className="w-7/12 p-2 lg:w-full">
+                <h3 className={"text-2xl font-bold leading-tight text-primary mb-2" + (isReverse ? " text-right" : " text-left") + " lg:text-center"}>{title}</h3>
+                <p className={(isReverse ? "text-right" : "text-left") + " lg:text-center"}>{subtitle}</p>
             </div>
         </div>
     )
@@ -41,7 +41,7 @@ function ThirdPage() {
     ]
 
     return (
-        <section id="third" className="my-2 w-full lg:w-5/12 lg:m-auto">
+        <section id="third" className="my-2 sm:w-full lg:px-60 lg:flex">
             {
                 cards && cards.map((item, index) => {
                     return (
